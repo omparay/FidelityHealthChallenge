@@ -30,12 +30,41 @@ class AppFrameworkTests: XCTestCase {
                 }
                 expectation.fulfill()
             case .failure(let error):
-                debugPrint(error.localizedDescription)
+                debugPrint(error)
                 XCTFail(error.localizedDescription)
                 expectation.fulfill()
             }
         }
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 30.0)
+    }
+    
+    func testDecoding() throws {
+        let expectation = XCTestExpectation(description: "Getting data...")
+        HTTPClient.sharedInstance.request(urlString: "https://api.jikan.moe/v3/search/anime?q=overlord",
+                                          method: Method.Get) { (result) in
+            switch result{
+            case .success(let data):
+                do {
+                    let decoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    decoder.dateDecodingStrategy = .iso8601
+                    let decoded = try decoder.decode(SearchResults.self, from: data)
+                    debugPrint("Data:",decoded)
+                    XCTAssertNotEqual(decoded.results.count, 0, "No results...")
+                    expectation.fulfill()
+                } catch {
+                    debugPrint(error)
+                    XCTFail(error.localizedDescription)
+                    expectation.fulfill()
+                }
+                expectation.fulfill()
+            case .failure(let error):
+                debugPrint(error)
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            }
+        }
+        wait(for: [expectation], timeout: 30.0)
     }
 
     func testPerformanceExample() throws {
