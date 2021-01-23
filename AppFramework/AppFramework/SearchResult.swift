@@ -3,11 +3,12 @@
 //  AppFramework
 //
 //  Created by Oliver Paray on 1/23/21.
+//  Model for Search Results
 //
 
 import Foundation
 
-struct SearchResult: Codable {
+public struct SearchResult: Codable {
     var malId: Int
     var url: String?
     var imageUrl: String?
@@ -23,7 +24,7 @@ struct SearchResult: Codable {
     var rated: String?
 }
 
-struct SearchResults: Codable {
+public struct SearchResults: Codable {
     var requestHash: String
     var requestCached: Bool?
     var requestCacheExpiry: Int?
