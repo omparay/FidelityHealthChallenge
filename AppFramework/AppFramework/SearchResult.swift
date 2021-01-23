@@ -9,6 +9,20 @@
 import Foundation
 
 public struct SearchResult: Codable {
+    public static let dummy =
+        SearchResult(malId: 0,
+                     url: "",
+                     imageUrl: "",
+                     title: "Dummy",
+                     airing: false,
+                     synopsis: "Dummy",
+                     type: "Dummy",
+                     episodes: 1,
+                     score: 0,
+                     startDate: Date(),
+                     endDate: Date(),
+                     members: 0,
+                     rated: "G")
     var malId: Int
     var url: String?
     var imageUrl: String?
@@ -25,6 +39,12 @@ public struct SearchResult: Codable {
 }
 
 public struct SearchResults: Codable {
+    public static let dummy =
+        SearchResults(requestHash: "",
+                      requestCached: false,
+                      requestCacheExpiry: 32767,
+                      results: [SearchResult.dummy],
+                      lastPage: 20)
     var requestHash: String
     var requestCached: Bool?
     var requestCacheExpiry: Int?

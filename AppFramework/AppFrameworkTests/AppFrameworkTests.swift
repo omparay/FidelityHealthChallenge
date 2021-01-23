@@ -67,9 +67,28 @@ class AppFrameworkTests: XCTestCase {
         wait(for: [expectation], timeout: 30.0)
     }
 
-    func testPerformanceExample() throws {
-        self.measure {
+    func testSearchService(){
+        let expectation = XCTestExpectation(description: "Getting data...")
+        let service = Service(endPoint: "api.jikan.moe/v3/search/anime",
+                              transportProtocol: "https://",
+                              queryStringFormat: "?q=%@")
+        service.search(text: "Mazinger") { (result) in
+            switch result {
+            case .success(let resultData):
+                XCTAssertNotEqual(resultData.results.count, 0, "No results...")
+                debugPrint("Results:",resultData)
+                expectation.fulfill()
+            case .failure(let error):
+                debugPrint(error)
+                XCTFail(error.localizedDescription)
+                expectation.fulfill()
+            }
         }
+        wait(for: [expectation], timeout: 30.0)
     }
+//    func testPerformanceExample() throws {
+//        self.measure {
+//        }
+//    }
 
 }
