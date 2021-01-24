@@ -34,9 +34,11 @@ public class Service {
     
     //MARK: Initializers
     public init() {
-        endPoint = ""
-        transportProtocol = ""
-        queryStringFormat = ""
+        self.endPoint = "api.jikan.moe/v3/search/anime"
+        self.transportProtocol = "https://"
+        self.queryStringFormat = "?q=%@"
+        self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+        self.decoder.dateDecodingStrategy = .iso8601
     }
     
     public init(endPoint: String, transportProtocol: String, queryStringFormat: String) {

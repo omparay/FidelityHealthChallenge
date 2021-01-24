@@ -11,7 +11,7 @@
 		A7F44AFD25BC21A100EE3889 /* AppFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F44AFC25BC21A100EE3889 /* AppFrameworkTests.swift */; };
 		A7F44AFF25BC21A100EE3889 /* AppFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = A7F44AF125BC21A000EE3889 /* AppFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A7F44B0B25BC22AC00EE3889 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F44B0A25BC22AC00EE3889 /* HTTPClient.swift */; };
-		A7F44B2825BC38A400EE3889 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F44B2725BC38A400EE3889 /* SearchResult.swift */; };
+		A7F44B2825BC38A400EE3889 /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F44B2725BC38A400EE3889 /* SearchResults.swift */; };
 		A7F44B2C25BCC2C400EE3889 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F44B2B25BCC2C400EE3889 /* Service.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +33,7 @@
 		A7F44AFC25BC21A100EE3889 /* AppFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFrameworkTests.swift; sourceTree = "<group>"; };
 		A7F44AFE25BC21A100EE3889 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7F44B0A25BC22AC00EE3889 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		A7F44B2725BC38A400EE3889 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		A7F44B2725BC38A400EE3889 /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = "<group>"; };
 		A7F44B2B25BCC2C400EE3889 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +80,7 @@
 				A7F44AF225BC21A000EE3889 /* Info.plist */,
 				A7F44AF125BC21A000EE3889 /* AppFramework.h */,
 				A7F44B0A25BC22AC00EE3889 /* HTTPClient.swift */,
-				A7F44B2725BC38A400EE3889 /* SearchResult.swift */,
+				A7F44B2725BC38A400EE3889 /* SearchResults.swift */,
 				A7F44B2B25BCC2C400EE3889 /* Service.swift */,
 			);
 			path = AppFramework;
@@ -203,7 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7F44B2825BC38A400EE3889 /* SearchResult.swift in Sources */,
+				A7F44B2825BC38A400EE3889 /* SearchResults.swift in Sources */,
 				A7F44B0B25BC22AC00EE3889 /* HTTPClient.swift in Sources */,
 				A7F44B2C25BCC2C400EE3889 /* Service.swift in Sources */,
 			);

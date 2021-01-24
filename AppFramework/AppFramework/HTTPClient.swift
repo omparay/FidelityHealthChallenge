@@ -39,7 +39,9 @@ public class HTTPClient{
     public static let sharedInstance = HTTPClient()
 
 //MARK: Initializers
-
+    public init() {
+        
+    }
 
 //MARK: Class Methods
 

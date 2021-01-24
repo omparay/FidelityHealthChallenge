@@ -5,22 +5,24 @@
 //  Created by Oliver Paray on 1/23/21.
 //
 
+import AppFramework
 import SwiftUI
 
 struct SearchView: View {
+    @ObservedObject var viewModel = SearchViewModel()
     var body: some View {
         VStack(alignment: .center,
                spacing: nil,
                content: {
-                SearchBar()
-                SearchList()
+                SearchBar(searchText: $viewModel.searchText)
+                SearchList(searchResults: $viewModel.searchResults)
                 Spacer()
                })
     }
 }
 
 struct SearchBar: View {
-    @State var searchText = String()
+    @Binding var searchText: String
     var body: some View {
         HStack(alignment: .center,
                spacing: nil,
@@ -44,18 +46,29 @@ struct SearchBar: View {
 }
 
 struct SearchList: View {
+    @Binding var searchResults: SearchResults
     var body: some View {
         List {
-            SearchItem()
-            SearchItem()
+            ForEach(searchResults.results, id: \.malId) { result in
+                SearchItem(searchItem: result)
+            }
         }
     }
 }
 
 struct SearchItem: View {
+    @State var searchItem: SearchResult
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack(alignment: .top, spacing: nil, content: {
+            ImageLoader(urlString: searchItem.imageUrl)
+            VStack(alignment: .leading, spacing: nil, content: {
+                Text("Title: \(searchItem.title ?? "")")
+                Text("")
+                Text("Synopsis:")
+                Text(searchItem.synopsis ?? "")
+            })
+            Spacer()
+        })
     }
 }
 
