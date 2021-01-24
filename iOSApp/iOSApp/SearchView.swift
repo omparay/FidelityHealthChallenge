@@ -59,21 +59,28 @@ struct SearchList: View {
 struct SearchItem: View {
     @State var searchItem: SearchResult
     var body: some View {
-        HStack(alignment: .top, spacing: nil, content: {
+        HStack(alignment: .top, spacing: 5, content: {
             ImageLoader(urlString: searchItem.imageUrl)
+                .frame(width:(UIDevice.current.userInterfaceIdiom == .pad) ? 256 : 96,
+                       height:(UIDevice.current.userInterfaceIdiom == .pad) ? 320 : 128)
             VStack(alignment: .leading, spacing: nil, content: {
                 Text("Title: \(searchItem.title ?? "")")
                 Text("")
                 Text("Synopsis:")
                 Text(searchItem.synopsis ?? "")
             })
-            Spacer()
-        })
+        }).frame(height:(UIDevice.current.userInterfaceIdiom == .pad) ? 360 : 256)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchView()
+        Group {
+            SearchView()
+            SearchView()
+                .previewDevice("iPhone 11 Pro Max")
+            SearchView()
+                
+        }
     }
 }
