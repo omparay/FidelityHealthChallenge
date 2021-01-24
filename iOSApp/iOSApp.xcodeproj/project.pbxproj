@@ -119,12 +119,12 @@
 			isa = PBXGroup;
 			children = (
 				A7F44B3B25BCD3CD00EE3889 /* iOSAppApp.swift */,
+				A7F44B7A25BD86C300EE3889 /* ImageLoader.swift */,
 				A7F44B3D25BCD3CD00EE3889 /* SearchView.swift */,
 				A7F44B6C25BCD4A200EE3889 /* SearchViewModel.swift */,
 				A7F44B3F25BCD3CE00EE3889 /* Assets.xcassets */,
 				A7F44B4425BCD3CE00EE3889 /* Info.plist */,
 				A7F44B4125BCD3CE00EE3889 /* Preview Content */,
-				A7F44B7A25BD86C300EE3889 /* ImageLoader.swift */,
 			);
 			path = iOSApp;
 			sourceTree = "<group>";

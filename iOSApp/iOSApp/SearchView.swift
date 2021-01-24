@@ -18,30 +18,28 @@ struct SearchView: View {
                 SearchList(searchResults: $viewModel.searchResults)
                 Spacer()
                })
+            .animation(.easeInOut)
     }
 }
 
 struct SearchBar: View {
+    @Environment(\.colorScheme) var cScheme
     @Binding var searchText: String
     var body: some View {
-        HStack(alignment: .center,
-               spacing: nil,
+        HStack(alignment: .top,
+               spacing: 4,
                content: {
-                Text("Search:").padding(10)
-                HStack(alignment: .center,
-                       spacing: nil,
-                       content: {
-                        TextField("Naruto", text: $searchText)
-                            .font(Font.system(size: 18,
-                                              weight: .regular,
-                                              design: .default))
-                       })
-                    .padding(8)
-                    .border(Color.black,
-                            width: 3)
-                    .cornerRadius(1.5)
-                Spacer()
-               })
+                Text("Search:")
+                uiTextField()
+                    .font(.system(size: 18,
+                                  weight: .regular,
+                                  design: .default))
+               }).padding(4)
+    }
+    
+    private func uiTextField() -> some View {
+        UITextField.appearance().clearButtonMode = .whileEditing
+        return TextField("Enter text here to begin search", text: $searchText)
     }
 }
 
@@ -52,7 +50,7 @@ struct SearchList: View {
             ForEach(searchResults.results, id: \.malId) { result in
                 SearchItem(searchItem: result)
             }
-        }
+        }.padding(4)
     }
 }
 
@@ -69,7 +67,7 @@ struct SearchItem: View {
                 Text("Synopsis:")
                 Text(searchItem.synopsis ?? "")
             })
-        }).frame(height:(UIDevice.current.userInterfaceIdiom == .pad) ? 360 : 256)
+        }).frame(height:(UIDevice.current.userInterfaceIdiom == .pad) ? 360 : 196)
     }
 }
 
@@ -77,10 +75,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SearchView()
+                .preferredColorScheme(.light)
             SearchView()
-                .previewDevice("iPhone 11 Pro Max")
-            SearchView()
-                
+                .preferredColorScheme(.dark)
         }
     }
 }
