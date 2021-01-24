@@ -7,3 +7,7 @@
 
 import AppFramework
 import Foundation
+
+class SearchViewModel: ObservableObject {
+    @Published var searchResults: SearchResults?
+}
